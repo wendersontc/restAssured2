@@ -45,28 +45,6 @@ class TestesAutomatizadosApplicationTests {
 	}
 	
 	
-	@Test
-	public void verificaRetornoDeItensESizes() {
-		get(URL).
-			then().
-			body("itens", notNullValue()).
-				and().
-			body("itens", not(empty())).
-				and().
-			body("sizes", notNullValue());
-
-	}
-	
-	@Test
-	public void verificaAtributosDoCampoItens() {
-		List<ItemFull> item = get(URL).getBody().jsonPath().getList("itens", ItemFull.class);
-		
-		assertThat(item, everyItem(hasProperty("sku", notNullValue())));
-		assertThat(item, everyItem(hasProperty("size", notNullValue())));
-		assertThat(item, everyItem(hasProperty("parentitemcode", notNullValue())));
-		assertThat(item, everyItem(hasProperty("rfid" , notNullValue())));
-		
-	}
 
 
 }
